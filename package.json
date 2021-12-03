@@ -1,0 +1,19 @@
+{
+    "name": "app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "play": "live-server",
+        "data": "json-server --watch db.json",
+        "start": "concurrently  \"npm run data\"  \"npm run play\""
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "angular": "^1.6.0",
+        "angular-route": "^1.5.8",
+        "bootstrap": "^4.4.1"
+    }
+}
