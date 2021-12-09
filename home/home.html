@@ -1,221 +1,75 @@
-<!-- <div class="container" ng-init="vm.init()">
+<div style="margin-top: 100px; padding: 0 7%;" ng-init="vm.init()" class="container">
 
-
-    <div ng-if="vm.errordb" class="container">
-        <alert-P msg="'Falha na conecxão com banco de dados!'" tipo="'erro'"></alert-P>
-        <alert-P></alert-P>
-    </div>
-    <nav class="navbar  bg-dark">
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" ng-model="vm.filterSearch" id="search " placeholder="Procurar..." aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-        </form>
-        
-    </nav>
-
-    <table class="table table-dark" ng-if="vm.usuarios" ng-endif="vm.usuarios">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Sexo</th>
-                <th scope="col">Editar</th>
-                <th scope="col">Excluir</th>
-
-
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="usuario in vm.usuarios | filter : vm.filterSearch ">
-                <th scope="row">{{usuario.id}}</th>
-                <td>{{usuario.nome}}</td>
-                <td>{{usuario.sexo}}</td>
-
-                <td>
-                    <button type="button" class="btn btn-warning" ng-click="vm.edit(usuario.id)">Editar</button>
-                </td>
-                <td>
-                    <button type="button" class="btn btn-danger" ng-click="vm.excluir(usuario.id)">Excluir</button>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
-
-</div> -->
-
-<script>
-
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-});
-var div = document.getElementById('hello');
-var texto = 'hey man... talk about some of your frustration today, which is just between us';
-
-function escrever(str, el) {
-  var char = str.split('').reverse();
-  var typer = setInterval(function() {
-    if (!char.length) return clearInterval(typer);
-    var next = char.pop();
-    el.innerHTML += next;
-  }, 50);
-}
-escrever(texto, div);
-
-
-
-</script>
-<style>
-    .d-none{
-        display: none !important;
-    }
-    span{
-        color: rgba(255, 255, 255, 0.705);
-    }
-
-    .postgre{
-        border: 2px solid rgb(255, 110, 110);
-        border-radius: 1rem;
-        margin:2rem 0;
-        padding: 2% 3%;
-    }
-    .ph{
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-    .ph2{
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-    .pv{
-        padding-top: 2rem;
-    }
-    .copy{
-        border: none;
-        padding: .7rem;
-        margin:0 0 0 10px;
-        cursor:pointer;
-        transition: 0.2s;
-        border-radius: .7rem;
-        color: white;
-        background: #ff6e6e;
-        outline: none !important;
-    }
-    .copy:hover, .copy:focus{
-        background: #ff6e6e54;
-    }
-    ::-webkit-scrollbar-track {
-    background-color: #ffffff10;
-}
-::-webkit-scrollbar {
-    width: 10px;
-    background: #ffffff33;
-}
-::-webkit-scrollbar-thumb {
-    background: #ff5757;
-    border-radius: 10rem;
-    border: none;
-}
-.search{
-border-radius: 10rem;
-border: 1px solid #ff6e6e;
-background: none;
-outline: none;
-color: rgba(255, 255, 255, 0.76);
-}
-.talk {
-  background: rgba(255, 104, 104, 0.342);
-  border-radius: 0 15px 15px 15px;
-  color: white;
-  position: relative;
-}
-
-
-.h-fit-content{
-    height: fit-content !important;
-}
-.gif{
-    width: 30%;
-    max-width: 300px;
-    max-height: 300px;
-    height: fit-content;
-}
-.hello{
-    width: 10%;
-    max-width: 250px;
-    max-height: 250px;
-    height: fit-content;
-}
-@media (max-width: 1000px){
-      #col{
-          display: none !important;
-      }
-}
-@media (max-width: 540px){
-   #posts{
-       padding-right: 10px !important;
-   }
-   #infos{
-       display: block !important;
-       
-   }
-   #infos h6{
-    font-size: 11px;
-
-   }
-   #info-time-post{
-    justify-content: space-around !important;
-   }
-}
-</style>
-<head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-</head>
-<div style="margin-top: 120px;" ng-init="vm.init()" class="container">
     <div ng-if="vm.errordb" class="container">
         <alert-P msg="'database connection failed!'" tipo="'erro'"></alert-P>
         <alert-P></alert-P>
     </div>
     <div class="row">
         <div class="w-auto h-auto d-flex align-items-center ">
-            <h6 id="posts" class="font-weight-light pr-5"></h6>
+
             <form class="w-auto h-100">
-                <input type="search" ng-model="vm.filterSearch" class="search w-100 h-100 ph" placeholder="EX: 345.."/>
+                <input type="search" ng-model="vm.filterSearch" class="search w-100 h-100 ph" placeholder="EX: 345.." />
             </form>
         </div>
     </div>
+
     <div class="row">
- 
-        <article id="col-p" ng-if="vm.usuarios" ng-endif="vm.usuarios" class="col cop d-block">
-            <div id="ul-p" ng-repeat="usuario in vm.usuarios | filter : vm.filterSearch "class="w-100 over d-blcok">
+        <main id="col-p" ng-if="vm.jinxs" ng-endif="vm.jinxs" class="col">
+            <section id="ul-p" dir="ltr" data-listing-price="{{jinx.id}}" ng-repeat="jinx in vm.jinxs | filter : vm.filterSearch |  orderBy:'id': true" class="d-block post">
                 <div class="w-100 ph h-auto postgre">
-                  <div id="infos" class="w-100 h-auto d-flex align-items-center justify-content-between font-weight-light">
-                    <h6  class="d-inline-block text-truncate" style="max-width: 150px;">{{usuario.nome}}</h6>
-                    <div id="info-time-post" class="w-auto text-danger align-items-center h-auto d-flex">
-                        <div  class="d-flex">
-                            <h6 class="pr-1">{{usuario.time}}</h6>
-                            <h6 class="pl-1">{{usuario.date}}</h6>
+                    <div id="infos" class="w-100 h-auto d-flex align-items-center justify-content-between font-weight-light">
+                        <h6 class="d-inline-block text-truncate" style="max-width: 150px;">{{jinx.nome}}</h6>
+                        <div class="w-auto d-flex align-items-center">
+                            <!-- <div class="edit ph" ng-click="vm.edit(jinx.id)">
+                          <i class="bi bi-pen"></i>
+                      </div> -->
+                            <button class="copy h-fit-content">
+                          <span>@{{jinx.id}}</span>
+                          <span>{{jinx.date}}</span>
+                      </button>
                         </div>
-                        <button class="copy h-fit-content">
-                              @{{usuario.id}}
-                        </button>
+
                     </div>
-                  </div>
-                 
-                  <div class="w-100 p-2 h-auto">
-                    <span id="content-post" style="word-break: break-all;">{{usuario.post}}
-                    </span>   
-                  </div>
+                    <div class="w-100 p-2 h-auto">
+                        <span id="content-post" style="word-break: break-all;">{{jinx.post}}
+                    </span>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <div class="col" id="col">
+            <div class="w-50 position-fixed h-auto" style="display: block;     text-align: -webkit-center;" id="scoop">
+                <img src="../assets/masks.jpg" class="gif" />
+                <div class="talk align-self-center w-auto p-2 hello">
+                    <h6 id="hello"></h6>
                 </div>
             </div>
-        </article>
-        <div class="col" id="col">
-                <div class="w-100 position-fixed h-auto" style="display: flex;" id="scoop">
-                    <img src="https://lh3.googleusercontent.com/d09SLQUSFCoOzVYqKbZvVvhw7lN9cftPuo_DEJUuab02Jaiw2UIm3iQvPOlFRM7PsRycTzFWkqWnNNKw-Jz3adRKTSmVfTyMeD1p=w600" class="gif"/>
-                    <div class="talk align-self-center p-2 hello">
-                        <h6 id="hello"></h6>
-                    </div>
-                </div>
         </div>
+
     </div>
 </div>
+
+<script>
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+    var div = document.getElementById('hello');
+    var texto = 'enjoy my child, because there is a storm coming';
+
+    function escrever(str, el) {
+        var char = str.split('').reverse();
+        var typer = setInterval(function() {
+            if (!char.length) return clearInterval(typer);
+            var next = char.pop();
+            el.innerHTML += next;
+        }, 80);
+    }
+    escrever(texto, div);
+
+    const scrollContainer = document.querySelector("main");
+
+    scrollContainer.addEventListener("wheel", (evt) => {
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY;
+    });
+</script>

@@ -3,13 +3,13 @@ HomeController.$inject = ['$location', 'CService', ];
 
 function HomeController($location, CService, ) {
     vm = this;
-    vm.test = 'usuarios'
-    vm.usuarios = ''
+    vm.test = 'jinxs'
+    vm.jinxs = ''
     vm.errordb = false
 
 
     vm.init = function() {
-        vm.listUsuarios()
+        vm.listJinxs()
 
     }
 
@@ -17,10 +17,10 @@ function HomeController($location, CService, ) {
         $location.path(rota + '/' + id)
     }
 
-    vm.listUsuarios = function() {
+    vm.listJinxs = function() {
         CService.exec_GET().then(function(resposta) {
             if (resposta) {
-                vm.usuarios = resposta
+                vm.jinxs = resposta
             } else {
                 vm.errordb = true
             }
@@ -34,7 +34,6 @@ function HomeController($location, CService, ) {
         })
     }
     vm.edit = function(id) {
-        vm.nav('/post', id)
-
+        vm.nav('/post', id);
     }
 }

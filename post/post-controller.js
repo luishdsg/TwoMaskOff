@@ -3,7 +3,8 @@ PostController.$inject = ['$location', 'CService', '$routeParams'];
 
 function PostController($location, CService, $routeParams) {
     vm = this;
-    vm.usuario = {}
+    vm.text = 'Posting'
+    vm.jinx = {}
     vm.iduser = undefined
     vm.butao = 'Send'
 
@@ -12,7 +13,7 @@ function PostController($location, CService, $routeParams) {
     if ($routeParams.iduser) {
         vm.iduser = $routeParams.iduser
         search(vm.iduser)
-        vm.butao = 'Send'
+        vm.butao = 'Edit'
 
     }
 
@@ -21,15 +22,15 @@ function PostController($location, CService, $routeParams) {
     }
     vm.posting = function() {
         if (vm.butao == 'Send') {
-            CService.exec_POST(vm.usuario).then(function(resposta) {
+            CService.exec_POST(vm.jinx).then(function(resposta) {
                 if (resposta) {
-                    vm.usuarios = resposta
+                    vm.jinxs = resposta
                 }
             })
-        } else if (vm.butao == 'Editar') {
-            CService.exec_PUT(vm.usuario).then(function(resposta) {
+        } else if (vm.butao == 'Edit') {
+            CService.exec_PUT(vm.jinx).then(function(resposta) {
                 if (resposta) {
-                    vm.usuarios = resposta
+                    vm.jinxs = resposta
                 }
             })
         }
@@ -40,13 +41,13 @@ function PostController($location, CService, $routeParams) {
     function search(id) {
         CService.exec_GET_ID(id).then(function(resposta) {
             if (resposta) {
-                vm.usuario = resposta
+                vm.jinx = resposta
             }
         })
 
     }
     vm.limpar = function() {
-        vm.usuario = {}
+        vm.jinx = {}
     }
 
 }

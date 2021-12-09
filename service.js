@@ -14,11 +14,11 @@ function CService($http) {
         exec_DEL: function(id) {
             return $http.delete(REST + '/' + id).then(resolvResp, resolvError)
         },
-        exec_POST: function(usuario) {
-            return $http.post(REST, usuario).then(resolvResp, resolvError)
+        exec_POST: function(jinx) {
+            return $http.post(REST, jinx).then(resolvResp, resolvError)
         },
-        exec_PUT: function(usuario) {
-            return $http.put(REST + '/' + usuario.id, usuario).then(resolvResp, resolvError)
+        exec_PUT: function(jinx) {
+            return $http.put(REST + '/' + jinx.id, jinx).then(resolvResp, resolvError)
         },
     }
 
