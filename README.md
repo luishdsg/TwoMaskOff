@@ -1,7 +1,7 @@
-# [TWOMASKOFF] &middot;
+# [TWOMASKOFF];
   
   
-**Objective** a posting system in `angular-cli`and `Json-sderver`, which can be optimized to use all REST tools in JS (edit, delete, change and post)... with a tribal theme LOL.
+**Objective**: a posting system in `angular-cli`and `Json-server`, which can be optimized to use all REST tools in JS (edit, delete, change and post)... with a tribal theme LOL.
 
 
 
